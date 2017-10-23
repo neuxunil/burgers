@@ -4,4 +4,4 @@
 
 **Курс:** Веб-разработка для начинающих (23.10.2017)
 
-**GitPages:** https://neuxunil.github.io/burgers/
+**GitHub Pages:** https://neuxunil.github.io/burgers/
