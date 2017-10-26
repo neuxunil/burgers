@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/ubuntu.woff2') format('woff2'),
+         url('../fonts/ubuntu.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Gagalin';
+    src: url('../fonts/gagalin.woff2') format('woff2'),
+         url('../fonts/gagalin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Lifehack';
+    src: url('../fonts/lifehack.woff2') format('woff2'),
+         url('../fonts/lifehack.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
