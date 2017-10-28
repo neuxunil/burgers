@@ -13,3 +13,32 @@
   padding: 0;
   margin-bottom: rem(60px);
 }
+
+.features {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: rem(110px);
+}
+
+.features__item {
+  width: rem(300px);
+}
+
+.features__title {
+  margin-top: rem(30px);
+  font-family: 'Lifehack';
+  font-size: rem(24px);
+  color: $dark;
+}
+
+.features__desc {
+  margin-top: rem(15px);
+  font-family: 'Ubuntu';
+  font-weight: 300;
+  font-size: rem(14px);
+  line-height: rem(24px);
+  color: #686768;
+}
