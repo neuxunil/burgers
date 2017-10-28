@@ -102,3 +102,15 @@
   font-weight: 500;
   line-height: 1;
 }
+
+.arrow {
+  display: inline-block;
+  margin: 0 auto;
+  transition: 0.5s;
+  padding-top: rem(8px);
+
+  &:hover {
+    padding-top: rem(0px);
+    padding-bottom: rem(8px);
+  }
+}

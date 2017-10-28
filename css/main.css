@@ -100,7 +100,7 @@ ul {
   flex-direction: column; }
 
 .section {
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.31);
   min-width: 940px;
   min-height: 650px; }
@@ -298,6 +298,17 @@ ul {
   font-size: 65px;
   font-weight: 500;
   line-height: 1; }
+
+.arrow {
+  display: inline-block;
+  margin: 0 auto;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 0.5rem; }
+  .arrow:hover {
+    padding-top: 0rem;
+    padding-bottom: 0.5rem; }
 
 .section__best {
   background-image: url("../img/bg/best_bg.png");
