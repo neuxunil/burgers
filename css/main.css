@@ -186,7 +186,7 @@ ul {
   .nav__link:hover {
     text-decoration: underline; }
 
-.section__container {
+.main__container {
   height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -260,5 +260,28 @@ ul {
   font-size: 65px;
   font-weight: 500;
   line-height: 1; }
+
+.section__best {
+  background-image: url("../img/bg/best_bg.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.header__title--best {
+  color: #2f3234;
+  padding: 0;
+  margin-bottom: 3.75rem; }
 
 /*# sourceMappingURL=main.css.map */
