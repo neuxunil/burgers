@@ -18,6 +18,10 @@
   margin-right: auto;
 }
 
+.logo_img {
+  max-width: 100%;
+}
+
 .nav {
   margin-right: rem(15px);
 }
@@ -78,6 +82,10 @@
 .header__img, .header__desc {
   flex-basis: 50%;
   display: flex;
+}
+
+.header__img {
+  max-width: 100%;
 }
 
 .header__desc {
