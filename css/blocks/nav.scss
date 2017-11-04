@@ -1,26 +1,27 @@
 .nav__list {
 	width: 100%;
-  display: flex;
-  align-items: center;
+  	display: flex;
+  	align-items: center;
 }
 
 .nav__item {
 	white-space: nowrap;
-
-	&:last-child {
-		margin-right: 0;
-		&:after {
-			display: none;
-		}
-	}
 
 	&:after {
 		content: "";
 		width: 4px;
 		height: 4px;
 		border-radius: 50%;
-		background: white;
+		background: #fff;
 		margin: 0 12px;
+	}
+
+	&:last-child {
+		margin-right: 0;
+
+		&:after {
+			display: none;
+		}
 	}
 }
 
