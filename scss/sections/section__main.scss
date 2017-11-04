@@ -79,18 +79,19 @@
   padding-bottom: 15%;
 }
 
-.header__img, .header__desc {
+.header__pic-img, .header__desc {
   flex-basis: 50%;
   display: flex;
 }
 
-.header__img {
+.header__pic-img {
   max-width: 100%;
 }
 
 .header__desc {
   flex-direction: column;
   justify-content: center;
+  padding-left: rem(10px);
 }
 
 .header__title {

@@ -1,14 +1,18 @@
+//normalize
+@import "layout/normalize";
+
 // config
 @import "config/variables";
 @import "config/mixins";
 
 // base
-@import "layout/fonts";
 @import "layout/base";
 @import "layout/adjustment";
+@import "layout/fonts";
 
 //sections
 @import "sections/section__main";
 @import "sections/section__best";
 @import "sections/section__burgers";
+@import "sections/section__team";
 @import "sections/section__reviews";
