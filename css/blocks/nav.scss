@@ -8,12 +8,14 @@
 	white-space: nowrap;
 
 	&:after {
-		content: "";
-		width: 4px;
-		height: 4px;
+		display: inline-flex;
+		vertical-align: middle;
+		content: ' ';
+		width: rem(4px);
+		height: rem(4px);
 		border-radius: 50%;
-		background: #fff;
-		margin: 0 12px;
+		background-color: #fff;
+		margin: 0 rem(12px);
 	}
 
 	&:last-child {

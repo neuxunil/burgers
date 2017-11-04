@@ -1089,12 +1089,17 @@ footer {
 .nav__item {
   white-space: nowrap; }
   .nav__item:after {
-    content: "";
-    width: 4px;
-    height: 4px;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+    content: ' ';
+    width: 0.25rem;
+    height: 0.25rem;
     border-radius: 50%;
-    background: #fff;
-    margin: 0 12px; }
+    background-color: #fff;
+    margin: 0 0.75rem; }
   .nav__item:last-child {
     margin-right: 0; }
     .nav__item:last-child:after {
