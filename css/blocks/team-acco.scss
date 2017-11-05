@@ -1,4 +1,11 @@
 .team-acco {
+	margin-top: rem(90px);
+	display: flex;
+	flex-direction: column;
+
+	@include tablets() {
+		line-height: rem(20px);
+	}
 }
 
 .team-acco__item {
@@ -25,9 +32,9 @@
 	@include gagalin;
 	text-decoration: none;
 	position: relative;
-  display: inline-flex;
-  margin-bottom: rem(20px);
-  align-items: center;  
+    display: inline-flex;
+	align-items: center;
+	margin-bottom: rem(20px);
   
   @include tablets() {
     font-size: rem(25px);
@@ -38,9 +45,9 @@
 		display: block;
 		position: absolute;
 		left: rem(-18px);
-		top: rem(8px);
+		top: rem(12px);
 		width: 0;
-    height: 0;
+	    height: 0;
 	}
 
 	&:before {
@@ -49,7 +56,7 @@
 		border-right: rem(5px) solid transparent;
 		border-bottom: rem(0px) solid transparent;
 		transform: rotate(0deg);
-		transition: .3s;
+		transition: 0.3s;
 	}
 
 	&:after {
@@ -63,7 +70,7 @@
 
 .team-acco__content {
 	padding-top: rem(14px);
-  display: none;
+  	display: none;
 }
 
 .team-acco__pic {

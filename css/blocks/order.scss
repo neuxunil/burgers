@@ -162,6 +162,10 @@
   @include ubuntu(middle);
   padding: rem(10px) rem(15px);
   cursor: pointer;
+
+  &:hover {
+    background-color: rgb(193, 64, 30);
+  }
 }
 
 .order__form-button_reset {
@@ -169,4 +173,8 @@
   padding-right: 0;
   text-transform: none;
   background: transparent;
+
+  &:hover {
+    background: transparent;
+  }
 }
