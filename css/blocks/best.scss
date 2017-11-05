@@ -13,7 +13,8 @@
 
 .best__icon-pic {
   width: 90%;
-  height: rem(100px);
+  height: rem(90px);
+
   svg {
     max-width: 95%;
   }
@@ -39,15 +40,17 @@
 }
 
 .best__icon {
+
 }
 
 .best__desc {
-  text-align: left;
+
 }
 
 .best__title {
   font-size: rem(24px);
   @include lifehack;
   color: $black;
+  margin-top: rem(20px);
   margin-bottom: rem(20px);
 }

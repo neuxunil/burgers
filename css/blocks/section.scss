@@ -20,4 +20,9 @@
 	&.section__title_white {
 		color: white;
 	}
+
+	@include tablets {
+		font-size: rem(65px);
+		line-height: rem(30px);
+	}
 }
