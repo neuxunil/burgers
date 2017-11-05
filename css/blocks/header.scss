@@ -8,11 +8,11 @@
 .header__btns {
   display: flex;
   align-items: center;
-  margin-left: auto;
 }
 
 .header__logo {
-
+  display: flex;
+  flex-grow: 1;
 }
 
 .header__links {

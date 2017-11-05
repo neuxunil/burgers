@@ -27,27 +27,47 @@
 .hero__right {
   float: left;
   width: 50%;
+
   @include tablets() {
     float: none;
     width: auto;
   }
 }
 
-.hero__left {}
+.hero__left {
+    width: 100%;
+
+  @include tablets() {
+    width: 80%;
+    padding-top: 0;
+  }
+}
 
 .hero__right {
-  padding-top: rem(115px);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   padding-left: rem(10px);
+
   @include tablets() {
-    padding-top: 0;
+   align-items: center;
   }
 }
 
 .hero__desc {
   font-size: rem(65px);
-  color: white;
+  color: #fff;
+  padding-top: rem(25px);
+
   @include lifehack;
-  text-transform: lowercase;
-  line-height: 1em;
+    text-transform: lowercase;
+    line-height: rem(60px);
+
+  @include tablets() {
+    font-size: rem(50px);
+    padding-top: rem(40px);
+  }
 }
 
 .hero__img {
@@ -65,23 +85,28 @@
   left: 50%;
   width: rem(60px);
   transform: translateX(-50%);
-  transition: .3s;
+  transition: 0.3s;
   height: rem(60px);
   display: flex;
   align-items: center;
   justify-content: center;
+
   &:hover {
     .down-arrow__icon {
       margin-top: rem(-15px);
-      width: rem(45px);
-      height: rem(45px);
+      width: rem(35px);
+      height: rem(35px);
     }
+  }
+
+  @include tablets() {
+    align-items: flex-end;
   }
 }
 
 .down-arrow__icon {
-  width: rem(40px);
-  height: rem(40px);
-  transition: .3s;
+  width: rem(30px);
+  height: rem(30px);
+  transition: 0.3s;
   fill: #fff;
 }
