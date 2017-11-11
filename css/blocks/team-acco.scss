@@ -1,26 +1,40 @@
 .team-acco {
-	margin-top: rem(90px);
 	display: flex;
 	flex-direction: column;
 
-	@include tablets() {
+	@include tablets {
 		line-height: rem(20px);
+		align-items: center;
 	}
 }
 
 .team-acco__item {
-  margin-bottom: rem(40px);
-  
+	display: flex;
+	flex-direction: column;
+	margin-bottom: rem(20px);
+
+	@include tablets {
+		align-items: center;
+	}
+
 	&:last-child {
 		margin-bottom: 0;
 	}
 
-	&.active {
+	&.active__team {
 		.team-acco__trigger {
 			color: $yellow;
 
 			&:before {
 				transform: rotate(-180deg);
+			}
+		}
+		.team-acco__content {
+			display: flex;
+
+			@include tablets {
+				flex-direction: column;
+				align-items: center;
 			}
 		}
 	}
@@ -32,22 +46,21 @@
 	@include gagalin;
 	text-decoration: none;
 	position: relative;
-    display: inline-flex;
-	align-items: center;
+	display: inline-flex;
 	margin-bottom: rem(20px);
-  
-  @include tablets() {
-    font-size: rem(25px);
-  }
+
+	@include tablets {
+		font-size: rem(25px);
+	}
 
 	&:before, &:after {
 		content: "";
 		display: block;
 		position: absolute;
 		left: rem(-18px);
-		top: rem(12px);
+		top: rem(8px);
 		width: 0;
-	    height: 0;
+		height: 0;
 	}
 
 	&:before {
@@ -70,29 +83,45 @@
 
 .team-acco__content {
 	padding-top: rem(14px);
-  	display: none;
+	display: none;
 }
 
 .team-acco__pic {
 	text-align: center;
 	width: 30%;
+
+	@include tablets {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin-bottom: rem(10px);
+	}
 }
 
 .team-acco__img {
-	width: rem(100px);
-	height: rem(100px);
+	min-width: rem(100px);
+	min-height: rem(100px);
 	@include cover;
 	border-radius: 50%;
 }
 
 .team-acco__text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	width: 70%;
+
+	@include tablets {
+		align-items: center;
+	}
 }
 
-.team-acco__pic, .team-acco__text {
+.team-acco__pic {
+	display: flex;
 }
 
 .team-acco__title {
+	display: flex;
 	@include ubuntu(bold);
 	font-size: rem(14px);
 	color: #fff;
@@ -100,7 +129,9 @@
 }
 
 .team-acco__text-content {
+	display: flex;
 	@include ubuntu(light);
 	color: #fff;
 	font-size: rem(14px);
+	text-align: left;
 }
