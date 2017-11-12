@@ -8,8 +8,16 @@
 }
 
 .arrow--left, .arrow--right {
+  fill: #fff;
   position: absolute;
   top: 50%;
+  position: absolute;
+  bottom: rem(20px);
+  width: rem(30px);
+  height: rem(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .arrow--left {
   left: 0%;

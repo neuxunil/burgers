@@ -589,8 +589,25 @@ footer {
   justify-content: center; }
 
 .arrow--left, .arrow--right {
+  fill: #fff;
   position: absolute;
-  top: 50%; }
+  top: 50%;
+  position: absolute;
+  bottom: 1.25rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 .arrow--left {
   left: 0%;
