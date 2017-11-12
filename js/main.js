@@ -1,8 +1,15 @@
 $(document).ready(function() {
-    var menuOn = $('.hamburger-menu-link'),
+    var menuVisible = $('.hamburger-menu-link'),
+        menuOff = $('.hamburger-menu__close'),
         menu = $('.hamburger-menu');
 
-    $(menuOn).on('click', function(e){
+    $(menuVisible).on('click touchstart', function (e) {
         e.preventDefault();
         $(menu).addClass('hamburger-menu_visible');
     });
+
+    $(menuOff).on('click touchstart', function (e) {
+        e.preventDefault();
+        $(menu).toggleClass('hamburger-menu_visible');
+    });
+})
