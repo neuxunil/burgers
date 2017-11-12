@@ -4,7 +4,7 @@
 	height: rem(22px);
 	align-items: center;
 	margin-left: rem(30px);
-  display: none;
+  	display: none;
 
   @include tablets() {
     display: flex;
