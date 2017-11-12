@@ -17,7 +17,15 @@
 		}
 
 		.menu-acco__content {
-			width: rem(550px);
+			width: rem(450px);
+
+			@include tablets {
+				width: rem(350px);
+			}
+
+			@include phones {
+				width: rem(260px);
+			}
 		}
 
 		.menu-acco__text {

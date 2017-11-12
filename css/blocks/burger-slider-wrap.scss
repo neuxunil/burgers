@@ -128,38 +128,34 @@
   font-size: rem(14px);
   line-height: rem(24px);
   color: #fff;
+  margin-top: rem(60px);
+}
 
-  @media screen and (max-width: 400px) {
-    margin-top: rem(10px);
-  }
+.slider__order-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 .slider__price {
-  display: inline-block;
+  display: flex;
   font-family: 'Gagalin-Regular';
   color: #e35028;
   font-size: rem(72px);
 
   &-text {
+    display: flex;
+  }
+
+  &-rub {
+    display: flex;
+    align-items: flex-end;
     font-size: rem(30px);
   }
 
   @include phones {
     font-size: 3.5rem;
   }
-}
-
-.slider__order-block {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-end;
-}
-
-.slider__order {
-  margin-left: rem(20px);
-  vertical-align: super;
-  display: inline-block;
 }
 
 .slider__composition-button {
