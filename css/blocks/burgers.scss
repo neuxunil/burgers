@@ -10,5 +10,16 @@
 
 	.section__title {
 		margin-bottom: rem(15px);
+		color: #fff;
+		line-height: rem(64px);
+
+		@include phones {
+			font-size: 3.5rem;
+		}
+
+		@media screen and (max-width: 400px) {
+			font-size: 3rem;
+			line-height: 3rem;
+		}
 	}
 }
