@@ -9,20 +9,22 @@
 .section__title {
 	color: $yellow;
 	font-size: rem(72px);
-
 	@include gagalin;
-	margin-bottom: rem(12px);
 
 	&.section__title_black {
 		color: $black;
 	}
 
 	&.section__title_white {
-		color: white;
+		color: #fff;
 	}
 
 	@include tablets {
-		font-size: rem(65px);
+		font-size: rem(55px);
 		line-height: rem(30px);
+	}
+
+	@include phones {
+		font-size: rem(45px);
 	}
 }

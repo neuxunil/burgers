@@ -3,15 +3,33 @@
 	right: 0;
 	top: 0;
 	bottom: 0;
-  display: flex;
+    display: flex;
 }
 
 .menu-acco__item {
+	display: flex;
+	flex-direction: row;
 	height: 100%;
 
-	&.active {
+	&.active__menu{
 		.menu-acco__trigger-text {
 			color: $yellow;
+		}
+
+		.menu-acco__content {
+			width: rem(450px);
+
+			@include tablets {
+				width: rem(350px);
+			}
+
+			@include phones {
+				width: rem(260px);
+			}
+		}
+
+		.menu-acco__text {
+			display: block;
 		}
 	}
 }
@@ -40,8 +58,7 @@
 
 .menu-acco__content {
 	height: 100%;
-	float: left;
-	background: rgba(#2f3234, .93);
+	background: rgba(#2f3234, 0.93);
 	width: 0;
 	overflow: hidden;
 }
@@ -50,8 +67,8 @@
 	@include ubuntu(light);
 	font-size: rem(14px);
 	color: #fff;
-	padding: rem(60px) rem(30px);
+	padding: rem(50px) rem(30px);
 	width: 100%;
-  line-height: 1.8;
-  display: none;
+    line-height: 1.8;
+    display: none;
 }

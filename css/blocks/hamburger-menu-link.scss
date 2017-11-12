@@ -4,7 +4,7 @@
 	height: rem(22px);
 	align-items: center;
 	margin-left: rem(30px);
-  display: none;
+	display: none;
 
   @include tablets() {
     display: flex;
@@ -14,7 +14,7 @@
 .hamburger-menu-link__bars {
 	&, &:before, &:after {
 		background: #fff;
-		width: rem(24px);
+		width: rem(22px);
 		height: rem(5px);
 		border-radius: rem(3px);
 	}

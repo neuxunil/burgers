@@ -11,6 +11,7 @@
 .order__form {
   margin-left: -5%;
   display: flex;
+  margin-top: rem(80px);
 
   @include tablets {
     flex-direction: column;
@@ -23,9 +24,14 @@
   width: 45%;
   margin-left: 5%;
 
+  @include tablets {
+    width: 100%;
+    margin: 5%;
+  }
+
   @include phones {
     width: 100%;
-    margin-left: 0;
+    margin-left: 5%;
   }
 }
 
@@ -35,7 +41,7 @@
 }
 
 .order__form-label {
-  margin-bottom: rem(17px);
+  margin-bottom: rem(10px);
   @include ubuntu();
   color: #fff;
   font-size: rem(14px);
@@ -67,7 +73,9 @@
   resize: none;
 }
 
-.order__form-buttons {}
+.order__form-buttons {
+  margin-left: 2%;
+}
 
 .order__radio {
   position: relative;
@@ -134,10 +142,10 @@
   .order__radio-elem:checked {
     &+.order__radio-fake {
       &:after {
-        background: url("../../img/icons/check.svg") 50% no-repeat transparent;
+        background: url("../img/content/check.svg") 50% no-repeat transparent;
         background-size: contain;
         width: rem(11px);
-        height: rem(9px);
+        height: rem(10px);
       }
     }
   }
@@ -154,6 +162,10 @@
   @include ubuntu(middle);
   padding: rem(10px) rem(15px);
   cursor: pointer;
+
+  &:hover {
+    background-color: rgb(193, 64, 30);
+  }
 }
 
 .order__form-button_reset {
@@ -161,4 +173,8 @@
   padding-right: 0;
   text-transform: none;
   background: transparent;
+
+  &:hover {
+    background: transparent;
+  }
 }
