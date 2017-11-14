@@ -1,4 +1,3 @@
-$(document).ready(function() {
     var menuVisible = $('.hamburger-menu-link'),
         menuClose = $('.hamburger-menu__close'),
         menu = $('.hamburger-menu');
@@ -10,6 +9,18 @@ $(document).ready(function() {
 
     $(menuClose).on('click', function(e) {
         e.preventDefault();
-        $(menu).toggleClass('hamburger-menu_visible');
+        $(menu).removeClass('hamburger-menu_visible');
     });
-})
+
+
+    // var menuVisible = document.querySelector('.hamburger-menu-link'),
+    //     menuClose = document.querySelector('.hamburger-menu__close'),
+    //     menu = document.querySelector('.hamburger-menu');
+    //
+    // menuVisible.addEventListener('click', function() {
+    //     menu.classList.add('hamburger-menu_visible')
+    // });
+    //
+    // menuClose.addEventListener('click', function() {
+    //     menu.classList.remove('hamburger-menu_visible')
+    // });

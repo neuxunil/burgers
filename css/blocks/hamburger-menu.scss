@@ -11,11 +11,9 @@
 	transition: opacity 0.3s;
 	display: none;
 	transition: 0.4s;
-	opacity: 1;
 
 	&_visible {
 		display: flex;
-		opacity: 0;
 	}
 }
 

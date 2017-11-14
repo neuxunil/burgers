@@ -1155,14 +1155,12 @@ footer {
   display: none;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
-  transition: 0.4s;
-  opacity: 1; }
+  transition: 0.4s; }
   .hamburger-menu_visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
-    opacity: 0; }
+    display: flex; }
 
 .hamburger-menu__logo {
   position: absolute;
