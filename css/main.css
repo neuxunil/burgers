@@ -2084,7 +2084,10 @@ footer {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  margin-bottom: 1.25rem; }
+  margin-bottom: 1.25rem;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
   @media screen and (max-width: 768px) {
     .team-acco__item {
       -webkit-box-align: center;

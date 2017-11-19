@@ -1,3 +1,4 @@
+    // гамбургер меню
     var menuVisible = $('.hamburger-menu-link'),
         menuClose = $('.hamburger-menu__close'),
         menu = $('.hamburger-menu');
@@ -12,15 +13,81 @@
         $(menu).removeClass('hamburger-menu_visible');
     });
 
+// Аккардеон в секции команда
+    $('.team-acco__trigger').on('click touchstart', function(e){
+        e.preventDefault();
+        var wrap = $(e.target).next('.team-acco__content'),
+            info = wrap.children('.team-acco__content'),
+            item = $(e.target).parent('.team-acco__item');
 
-    // var menuVisible = document.querySelector('.hamburger-menu-link'),
-    //     menuClose = document.querySelector('.hamburger-menu__close'),
-    //     menu = document.querySelector('.hamburger-menu');
-    //
-    // menuVisible.addEventListener('click', function() {
-    //     menu.classList.add('hamburger-menu_visible')
-    // });
-    //
-    // menuClose.addEventListener('click', function() {
-    //     menu.classList.remove('hamburger-menu_visible')
-    // });
+        item.toggleClass('active__team');
+        item.siblings().removeClass('active__team');
+
+        if (item.hasClass('active__team')) {
+           info.css({ 'display' : none });
+            wrap.css({ 'display' : info.display(none) });
+        } else {
+            info.css({ 'display' : block });
+        }
+    });
+
+    // Слайдер
+    $(function() {
+        var screen = $('.slider__list'),
+            slide = $('.slider__item'),
+            right = $('.arrow--right'),
+            left = $('.arrow--left'),
+            slideNum = 0,
+            scrolling = false;
+
+
+        var relocate = function (slideNum) { //функция смещения на другой слайд
+
+            if(!scrolling) { //если уже идет скролл, нельзя заново вызвать функцию
+                scrolling = true;
+
+                var position = (slideNum * -100) + '%';
+
+                screen.css({
+                    '-webkit-transform:' : 'translateX(' + position + ')',
+                    '-ms-transform:' : 'translateX(' + position + ')',
+                    'transform' : 'translateX(' + position + ')',
+
+                });
+
+                setTimeout(function() {
+                    scrolling = false;
+                    $('.slider__item').eq(slideNum).addClass('active')
+                        .siblings().removeClass('active');
+                }, 800);
+            }
+        }
+
+        $(left).on('click touchstart', function(e){
+            e.preventDefault();
+
+            if(!scrolling) { //если уже идет скролл, slideNum нельзя изменить
+                if (slideNum > 0) {
+                    slideNum--;
+                    relocate(slideNum);
+                } else {
+                    slideNum = slide.length - 1;
+                    relocate(slideNum);
+                }
+            }
+        });
+
+        $(right).on('click touchstart', function(e){
+            e.preventDefault();
+
+            if(!scrolling) { //если уже идет скролл, slideNum нельзя изменить
+                if (slideNum < slide.length - 1) {
+                    slideNum++;
+                    relocate(slideNum);
+                } else {
+                    slideNum = 0;
+                    relocate(slideNum);
+                }
+            }
+        });
+    });
