@@ -13,7 +13,7 @@
         $(menu).removeClass('hamburger-menu_visible');
     });
 
-// Аккардеон в секции команда
+// Аккордеон в секции команда
     $('.team-acco__trigger').on('click touchstart', function(e){
         e.preventDefault();
         var wrap = $(e.target).next('.team-acco__content'),
@@ -24,10 +24,10 @@
         item.siblings().removeClass('active__team');
 
         if (item.hasClass('active__team')) {
-           info.css({ 'display' : none });
-            wrap.css({ 'display' : info.display(none) });
+           info.css({'height' : 0});
+            wrap.css({ 'height' : info.height() });
         } else {
-            info.css({ 'display' : block });
+            info.css({'height' : 0});
         }
     });
 
