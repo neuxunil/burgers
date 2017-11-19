@@ -32,9 +32,6 @@
 		}
 		.team-acco__content {
 			display: flex;
-			height: 100%;
-			overflow: none;
-			transition: 0.5s;
 
 			@include tablets {
 				flex-direction: column;
@@ -89,7 +86,7 @@
 	padding-top: rem(14px);
 	height: 0;
 	overflow: hidden;
-	transition: height 0.5s;
+	transition: 0.5s;
 }
 
 .team-acco__pic {

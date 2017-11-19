@@ -2106,12 +2106,7 @@ footer {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
-    height: 100%;
-    overflow: none;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s; }
+    display: flex; }
     @media screen and (max-width: 768px) {
       .team-acco__item.active__team .team-acco__content {
         -webkit-box-orient: vertical;
@@ -2168,9 +2163,9 @@ footer {
   padding-top: 0.875rem;
   height: 0;
   overflow: hidden;
-  -webkit-transition: height 0.5s;
-  -o-transition: height 0.5s;
-  transition: height 0.5s; }
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
 
 .team-acco__pic {
   text-align: center;

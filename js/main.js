@@ -13,23 +13,56 @@
         $(menu).removeClass('hamburger-menu_visible');
     });
 
-// Аккордеон в секции команда
-    $('.team-acco__trigger').on('click touchstart', function(e){
-        e.preventDefault();
-        var wrap = $(e.target).next('.team-acco__content'),
-            info = wrap.children('.team-acco__content'),
-            item = $(e.target).parent('.team-acco__item');
+// // Аккордеон в секции команда
+//     $('.team-acco__trigger').on('click touchstart', function(e){
+//         e.preventDefault();
+//         var wrap = $(e.target).next('.team-acco__content'),
+//             info = wrap.children('.team-acco__content'),
+//             item = $(e.target).parent('.team-acco__item');
+//
+//         item.toggleClass('active__team');
+//         item.siblings().removeClass('active__team');
+//
+//         if (item.hasClass('active__team')) {
+//            info.css({'height' : 0});
+//             wrap.css({ 'height' : info.height() });
+//         } else {
+//             info.css({'height' : 0});
+//         }
+//     });
 
-        item.toggleClass('active__team');
-        item.siblings().removeClass('active__team');
+    //acco
+    $(function () {
+        $('.team-acco__trigger').on('click', e => {
+            e.preventDefault()
 
-        if (item.hasClass('active__team')) {
-           info.css({'height' : 0});
-            wrap.css({ 'height' : info.height() });
+        const $this = $(e.currentTarget);
+        const container = $this.closest('.team-acco');
+        const item = $this.closest('.team-acco__item');
+        const items = $('.team-acco__item', container);
+        const content = $('.team-acco__content', item);
+        const otherContent = $('.team-acco__content', container);
+        const textBlock = $('.acco__content-text', item);
+        const reqHeight = textBlock.outerHeight();
+
+        if (!item.hasClass('active__team')) {
+            items.removeClass('active__team')
+            item.addClass('active__team')
+            otherContent.css({
+                'height': 0
+            })
+            content.css({
+                'height': reqHeight
+            })
         } else {
-            info.css({'height' : 0});
+            item.removeClass('active__team');
+            content.css({
+                'height' : 0
+            })
         }
-    });
+    })
+    })
+
 
     // Слайдер
     $(function() {
@@ -91,3 +124,14 @@
             }
         });
     });
+
+    // Модальное окно - отзывы
+    $(function() {
+        $("[data-popup]").fancybox({
+          transitionDuration : 500,
+    });
+        $('.full-review__close').on('click', e => {
+            e.preventDefault()
+        $.fancybox.close();
+    })
+    })
