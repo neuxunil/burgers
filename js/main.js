@@ -13,56 +13,29 @@
         $(menu).removeClass('hamburger-menu_visible');
     });
 
-// // Аккордеон в секции команда
-//     $('.team-acco__trigger').on('click touchstart', function(e){
-//         e.preventDefault();
-//         var wrap = $(e.target).next('.team-acco__content'),
-//             info = wrap.children('.team-acco__content'),
-//             item = $(e.target).parent('.team-acco__item');
-//
-//         item.toggleClass('active__team');
-//         item.siblings().removeClass('active__team');
-//
-//         if (item.hasClass('active__team')) {
-//            info.css({'height' : 0});
-//             wrap.css({ 'height' : info.height() });
-//         } else {
-//             info.css({'height' : 0});
-//         }
-//     });
-
-    //acco
-    $(function () {
-        $('.team-acco__trigger').on('click', e => {
+    //Аккордеон - команда
+        $('.team-acco__trigger').on('click', (e) => {
             e.preventDefault()
 
-        const $this = $(e.currentTarget);
-        const container = $this.closest('.team-acco');
-        const item = $this.closest('.team-acco__item');
-        const items = $('.team-acco__item', container);
-        const content = $('.team-acco__content', item);
-        const otherContent = $('.team-acco__content', container);
-        const textBlock = $('.acco__content-text', item);
-        const reqHeight = textBlock.outerHeight();
+        const $this = $(e.target)
+        const item = $this.closest('.team-acco__item')
+        const container = $this.closest('.team-acco')
+        const items = container.find('.team-acco__item')
+        const content = item.find('.team-acco__content')
+        const otherContent = container.find('.team-acco__content')
 
-        if (!item.hasClass('active__team')) {
-            items.removeClass('active__team')
-            item.addClass('active__team')
-            otherContent.css({
-                'height': 0
-            })
-            content.css({
-                'height': reqHeight
-            })
+        if (!item.hasClass('active')) {
+
+            items.removeClass('active')
+            item.addClass('active')
+            otherContent.slideUp()
+            content.slideDown()
+
         } else {
-            item.removeClass('active__team');
-            content.css({
-                'height' : 0
-            })
+            item.removeClass('active')
+            content.slideUp()
         }
-    })
-    })
-
+    });
 
     // Слайдер
     $(function() {
@@ -135,3 +108,108 @@
         $.fancybox.close();
     })
     })
+
+    // One page scroll
+    const display = $('.maincontent');
+    const sections = $('.section');
+
+    let inScroll = false;
+
+    const mobileDetect = new MobileDetect(window.navigator.userAgent);
+    const isMobile = mobileDetect.mobile();
+
+    const switchMenuActiveClass = sectionEq => {
+        $('.fixed-menu__item').eq(sectionEq).addClass('active')
+            .siblings().removeClass('active');
+    }
+
+    const performTransition = sectionEq => {
+        if (inScroll) return
+        inScroll = true
+
+        const position = (sectionEq * -100) + '%';
+
+        display.css({
+            'transform': `translate(0, ${position})`,
+            '-webkit-transform': `translate(0, ${position})`
+        })
+
+        sections.eq(sectionEq).addClass('active')
+            .siblings().removeClass('active');
+
+        setTimeout(() => {
+            inScroll = false;
+        switchMenuActiveClass(sectionEq);
+    }, 1300);
+    }
+
+    const difineSections = sections => {
+        const activeSection = sections.filter('.active');
+        return {
+            activeSection: activeSection,
+            nextSection: activeSection.next(),
+            prevSection: activeSection.prev()
+        }
+    }
+
+    const scrollToSection = direction => {
+        const section = difineSections(sections)
+
+        if (inScroll) return;
+
+        if (direction === 'up' && section.nextSection.length) { // вниз
+            performTransition(section.nextSection.index())
+        }
+
+        if (direction === 'down' && section.prevSection.length) { // вверх
+            performTransition(section.prevSection.index())
+        }
+    }
+
+    $('.wrapper').on({
+        wheel: e => {
+        const deltaY = e.originalEvent.deltaY;
+    let direction = (deltaY > 0)
+        ? 'up'
+        : 'down'
+
+    scrollToSection(direction);
+    },
+    touchmove: e => (e.preventDefault())
+    });
+
+
+    $(document).on('keydown', e => {
+        const section = difineSections(sections);
+
+    if (inScroll) return
+
+    switch (e.keyCode) {
+        case 40: // вверх
+            if (!section.nextSection.length) return;
+            performTransition(section.nextSection.index());
+            break;
+
+        case 38: //вниз
+            if (!section.prevSection.length) return;
+            performTransition(section.prevSection.index());
+            break;
+    }
+    });
+
+    if (isMobile) {
+        $(window).swipe({
+            swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                console.log(direction);
+                scrollToSection(direction);
+            }
+        })
+    }
+
+    $('[data-scroll-to]').on('click touchstart', e => {
+        e.preventDefault();
+    const $this = $(e.currentTarget);
+    const sectionIndex = parseInt($this.attr('data-scroll-to'));
+
+    performTransition(sectionIndex);
+    });
