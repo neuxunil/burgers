@@ -442,7 +442,8 @@ body {
   position: relative;
   font-family: 'Ubuntu', Helvetica, sans-serif;
   font-weight: 300;
-  color: #2f3234; }
+  color: #2f3234;
+  overflow: hidden; }
 
 .container {
   margin: 0 auto;
@@ -462,8 +463,23 @@ body {
 .wrapper {
   position: relative;
   width: 100%;
-  min-height: 100%;
-  overflow: hidden; }
+  height: 100%;
+  overflow: hidden;
+  min-height: 650px; }
+  @media screen and (max-width: 768px) {
+    .wrapper {
+      min-height: auto; } }
+
+.maincontent {
+  height: 100%;
+  min-height: 650px;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  will-change: transform; }
+  @media screen and (max-width: 768px) {
+    .maincontent {
+      min-height: auto; } }
 
 h1,
 h2,
@@ -566,6 +582,7 @@ footer {
   text-decoration: none;
   border-radius: 0.3125rem;
   padding: 0.5625rem 1rem;
+  cursor: pointer;
   font-family: 'Ubuntu', Helvetica, sans-serif;
   font-weight: 500; }
   .btn:hover {
@@ -1149,9 +1166,6 @@ footer {
   -ms-flex-pack: center;
   justify-content: center;
   z-index: 100;
-  -webkit-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s;
   display: none;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
@@ -1169,8 +1183,8 @@ footer {
 
 .hamburger-menu__close {
   position: absolute;
-  right: 0.9375rem;
-  top: 0.9375rem;
+  right: 1.25rem;
+  top: 1.5625rem;
   width: 1.125rem;
   height: 1.125rem;
   padding: 0.9375rem;
@@ -2056,96 +2070,58 @@ footer {
   width: 1.25rem;
   height: 1.25rem; }
 
-.team-acco {
+@media screen and (max-width: 768px) {
+  .team-acco {
+    padding-bottom: 20px; } }
+
+.team-acco__data {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
+  display: flex; }
   @media screen and (max-width: 768px) {
-    .team-acco {
-      line-height: 1.25rem;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center; } }
+    .team-acco__data {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; } }
 
 .team-acco__item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin-bottom: 1.25rem;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s; }
+  margin-bottom: 40px; }
   @media screen and (max-width: 768px) {
     .team-acco__item {
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center; } }
+      margin-bottom: 30px; } }
   .team-acco__item:last-child {
     margin-bottom: 0; }
-  .team-acco__item.active__team .team-acco__trigger {
+  .team-acco__item.active .team-acco__trigger {
     color: #f9b43b; }
-    .team-acco__item.active__team .team-acco__trigger:before {
+    .team-acco__item.active .team-acco__trigger:before {
       -webkit-transform: rotate(-180deg);
       -ms-transform: rotate(-180deg);
       transform: rotate(-180deg); }
-  .team-acco__item.active__team .team-acco__content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    @media screen and (max-width: 768px) {
-      .team-acco__item.active__team .team-acco__content {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center; } }
 
 .team-acco__trigger {
   color: #fff;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-family: 'Gagalin-Regular', Helvetica, sans-serif;
   text-decoration: none;
   position: relative;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin-bottom: 1.25rem; }
-  @media screen and (max-width: 768px) {
-    .team-acco__trigger {
-      font-size: 1.5625rem; } }
+  display: block;
+  margin-bottom: 20px; }
   .team-acco__trigger:before, .team-acco__trigger:after {
     content: "";
     display: block;
     position: absolute;
-    left: -1.125rem;
-    top: 0.5rem;
+    left: 75px;
+    top: 11px;
     width: 0;
     height: 0; }
   .team-acco__trigger:before {
-    border-top: 0.4375rem solid #f9b43b;
-    border-left: 0.3125rem solid transparent;
-    border-right: 0.3125rem solid transparent;
-    border-bottom: 0rem solid transparent;
+    border-top: 7px solid #f9b43b;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 0px solid transparent;
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -2154,40 +2130,45 @@ footer {
     transition: 0.3s; }
   .team-acco__trigger:after {
     display: none;
-    border-bottom: 0.4375rem solid #f9b43b;
-    border-left: 0.3125rem solid transparent;
-    border-right: 0.3125rem solid transparent;
-    border-top: 0rem solid transparent; }
+    border-bottom: 7px solid #f9b43b;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 0px solid transparent; }
+  @media screen and (max-width: 768px) {
+    .team-acco__trigger {
+      display: inline-block;
+      font-size: 25px; }
+      .team-acco__trigger:before {
+        margin-top: 10px; } }
 
 .team-acco__content {
-  padding-top: 0.875rem;
+  padding-top: 14px;
   display: none; }
+  @media screen and (max-width: 768px) {
+    .team-acco__content {
+      padding: 0 25%; } }
 
 .team-acco__pic {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   text-align: center;
   width: 30%; }
   @media screen and (max-width: 768px) {
     .team-acco__pic {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      width: 100%;
-      margin-bottom: 0.625rem; } }
+      margin-bottom: 15px; } }
 
 .team-acco__img {
-  min-width: 6.25rem;
-  min-height: 6.25rem;
+  width: 100px;
+  height: 100px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 50%; }
 
 .team-acco__text {
+  width: 70%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2197,45 +2178,27 @@ footer {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  width: 70%; }
-  @media screen and (max-width: 768px) {
-    .team-acco__text {
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center; } }
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
-.team-acco__pic {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
+@media screen and (max-width: 768px) {
+  .team-acco__pic, .team-acco__text {
+    width: 100%; } }
 
 .team-acco__title {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   font-family: 'Ubuntu', Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #fff;
-  margin-bottom: 0.875rem; }
+  margin-bottom: 14px; }
 
 .team-acco__text-content {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   font-family: 'Ubuntu', Helvetica, sans-serif;
   font-weight: 300;
   color: #fff;
-  font-size: 0.875rem;
-  text-align: left; }
+  font-size: 14px; }
 
 .team {
   background: url("../img/bg/team.jpg") no-repeat;

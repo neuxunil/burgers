@@ -13,23 +13,90 @@
         $(menu).removeClass('hamburger-menu_visible');
     });
 
-// Аккардеон в секции команда
-    $('.team-acco__trigger').on('click touchstart', function(e){
-        e.preventDefault();
-        var wrap = $(e.target).next('.team-acco__content'),
-            info = wrap.children('.team-acco__content'),
-            item = $(e.target).parent('.team-acco__item');
+    //Аккордеон - команда
+        $('.team-acco__trigger').on('click', (e) => {
+            e.preventDefault()
 
-        item.toggleClass('active__team');
-        item.siblings().removeClass('active__team');
+        const $this = $(e.target)
+        const item = $this.closest('.team-acco__item')
+        const container = $this.closest('.team-acco')
+        const items = container.find('.team-acco__item')
+        const content = item.find('.team-acco__content')
+        const otherContent = container.find('.team-acco__content')
 
-        if (item.hasClass('active__team')) {
-           info.css({ 'display' : none });
-            wrap.css({ 'display' : info.display(none) });
+        if (!item.hasClass('active')) {
+
+            items.removeClass('active')
+            item.addClass('active')
+            otherContent.slideUp()
+            content.slideDown()
+
         } else {
-            info.css({ 'display' : block });
+            item.removeClass('active')
+            content.slideUp()
         }
     });
+
+
+// Аккордеон в секции меню
+        const calculateWidth = () => {
+            const wWidth = $(window).width()
+            const titles = $('.menu-acco__trigger')
+            const titleWidth = titles.width()
+            const reqWidth = wWidth - (titleWidth * titles.length)
+
+            return (reqWidth > 550) ? 550 : reqWidth
+        }
+
+        const openItem = item => {
+            const container = $('.menu-acco')
+            const items = $('.menu-acco__item', container)
+            const accoText = $('.menu-acco__text', container)
+            const activeItem = items.filter('.active__menu')
+            const activeContent = activeItem.find('.menu-acco__content')
+            const content = item.find('.menu-acco__content')
+            const reqWidth = calculateWidth()
+
+            items.removeClass('active__menu');
+            item.addClass('active__menu');
+
+            accoText.hide();
+            activeContent.animate({ 'width': '0px' });
+
+            content.animate({
+                'width': reqWidth + 'px'
+            }, () => { accoText.fadeIn() })
+        }
+
+        const closeItem = item => {
+            item.removeClass('active__menu');
+
+            item.closest('.menu-acco').find('.menu-acco__text')
+                .stop(true, true).fadeOut(() => {
+                item.find('.menu-acco__content').animate({ 'width': '0px' });
+        });
+        }
+
+        $('.menu-acco__trigger').on('click', (e) => {
+            e.preventDefault();
+
+        const $this = $(e.target)
+        const item = $this.closest('.menu-acco__item')
+
+        item.hasClass('active__menu')
+            ? closeItem(item)
+            : openItem(item)
+    });
+
+        // клик вне аккордеона
+        $(document).on('click', (e) => {
+            const $this = $(e.target);
+
+        if (!$this.closest('.menu-acco').length) {
+            closeItem($('.menu-acco__item'))
+        }
+    });
+
 
     // Слайдер
     $(function() {
@@ -90,4 +157,120 @@
                 }
             }
         });
+    });
+
+    // Модальное окно - отзывы
+    $(function() {
+        $("[data-popup]").fancybox({
+          transitionDuration : 500,
+    });
+        $('.full-review__close').on('click', e => {
+            e.preventDefault()
+        $.fancybox.close();
+    })
+    })
+
+    // One page scroll
+    const display = $('.maincontent');
+    const sections = $('.section');
+
+    let inScroll = false;
+
+    const mobileDetect = new MobileDetect(window.navigator.userAgent);
+    const isMobile = mobileDetect.mobile();
+
+    const switchMenuActiveClass = sectionEq => {
+        $('.fixed-menu__item').eq(sectionEq).addClass('active')
+            .siblings().removeClass('active');
+    }
+
+    const performTransition = sectionEq => {
+        if (inScroll) return
+        inScroll = true
+
+        const position = (sectionEq * -100) + '%';
+
+        display.css({
+            'transform': `translate(0, ${position})`,
+            '-webkit-transform': `translate(0, ${position})`
+        })
+
+        sections.eq(sectionEq).addClass('active')
+            .siblings().removeClass('active');
+
+        setTimeout(() => {
+            inScroll = false;
+        switchMenuActiveClass(sectionEq);
+    }, 1300);
+    }
+
+    const difineSections = sections => {
+        const activeSection = sections.filter('.active');
+        return {
+            activeSection: activeSection,
+            nextSection: activeSection.next(),
+            prevSection: activeSection.prev()
+        }
+    }
+
+    const scrollToSection = direction => {
+        const section = difineSections(sections)
+
+        if (inScroll) return;
+
+        if (direction === 'up' && section.nextSection.length) { // вниз
+            performTransition(section.nextSection.index())
+        }
+
+        if (direction === 'down' && section.prevSection.length) { // вверх
+            performTransition(section.prevSection.index())
+        }
+    }
+
+    $('.wrapper').on({
+        wheel: e => {
+        const deltaY = e.originalEvent.deltaY;
+    let direction = (deltaY > 0)
+        ? 'up'
+        : 'down'
+
+    scrollToSection(direction);
+    },
+    touchmove: e => (e.preventDefault())
+    });
+
+
+    $(document).on('keydown', e => {
+        const section = difineSections(sections);
+
+    if (inScroll) return
+
+    switch (e.keyCode) {
+        case 40: // вверх
+            if (!section.nextSection.length) return;
+            performTransition(section.nextSection.index());
+            break;
+
+        case 38: //вниз
+            if (!section.prevSection.length) return;
+            performTransition(section.prevSection.index());
+            break;
+    }
+    });
+
+    if (isMobile) {
+        $(window).swipe({
+            swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                console.log(direction);
+                scrollToSection(direction);
+            }
+        })
+    }
+
+    $('[data-scroll-to]').on('click touchstart', e => {
+        e.preventDefault();
+    const $this = $(e.currentTarget);
+    const sectionIndex = parseInt($this.attr('data-scroll-to'));
+
+    performTransition(sectionIndex);
     });
