@@ -1166,9 +1166,6 @@ footer {
   -ms-flex-pack: center;
   justify-content: center;
   z-index: 100;
-  -webkit-transition: opacity 0.3s;
-  -o-transition: opacity 0.3s;
-  transition: opacity 0.3s;
   display: none;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
@@ -1186,8 +1183,8 @@ footer {
 
 .hamburger-menu__close {
   position: absolute;
-  right: 0.9375rem;
-  top: 0.9375rem;
+  right: 1.25rem;
+  top: 1.5625rem;
   width: 1.125rem;
   height: 1.125rem;
   padding: 0.9375rem;

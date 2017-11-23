@@ -8,7 +8,6 @@
 	align-items: center;
 	justify-content: center;
 	z-index: 100;
-	transition: opacity 0.3s;
 	display: none;
 	transition: 0.4s;
 
@@ -25,8 +24,8 @@
 
 .hamburger-menu__close {
 	position: absolute;
-	right: rem(15px);
-	top: rem(15px);
+	right: rem(20px);
+	top: rem(25px);
 	width: rem(18px);
 	height: rem(18px);
 	padding: rem(15px);
