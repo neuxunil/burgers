@@ -3,18 +3,18 @@
         menuClose = $('.hamburger-menu__close'),
         menu = $('.hamburger-menu');
 
-    $(menuVisible).on('click', function(e) {
+    $(menuVisible).on('click touchstart', function(e) {
         e.preventDefault();
         $(menu).addClass('hamburger-menu_visible');
     });
 
-    $(menuClose).on('click', function(e) {
+    $(menuClose).on('click touchstart', function(e) {
         e.preventDefault();
         $(menu).removeClass('hamburger-menu_visible');
     });
 
     //Аккордеон - команда
-        $('.team-acco__trigger').on('click', (e) => {
+        $('.team-acco__trigger').on('click touchstart', (e) => {
             e.preventDefault()
 
         const $this = $(e.target)
@@ -77,7 +77,7 @@
         });
         }
 
-        $('.menu-acco__trigger').on('click', (e) => {
+        $('.menu-acco__trigger').on('click touchstart', (e) => {
             e.preventDefault();
 
         const $this = $(e.target)
@@ -89,7 +89,7 @@
     });
 
         // клик вне аккордеона
-        $(document).on('click', (e) => {
+        $(document).on('click touchstart', (e) => {
             const $this = $(e.target);
 
         if (!$this.closest('.menu-acco').length) {
@@ -161,7 +161,7 @@
 
     // Модальное окно - отзывы
     $(function() {
-        $("[data-popup]").fancybox({
+        $(".review__view").fancybox({
           transitionDuration : 500,
     });
         $('.full-review__close').on('click', e => {
@@ -251,7 +251,7 @@
             performTransition(section.nextSection.index());
             break;
 
-        case 38: //вниз
+        case 38: // вниз
             if (!section.prevSection.length) return;
             performTransition(section.prevSection.index());
             break;
@@ -274,3 +274,37 @@
 
     performTransition(sectionIndex);
     });
+
+    //yandex карта
+        let myMap
+        const init = () => {
+            myMap = new ymaps.Map("map", {
+                center: [59.93916998692174, 30.309015096732622],
+                zoom: 11,
+                controls: [],
+            });
+
+            var coords = [
+                    [59.94554327989287, 30.38935262114668],
+                    [59.91142323563909, 30.50024587065841],
+                    [59.88693161784606, 30.319658102103713],
+                    [59.97033574821672, 30.315194906302924],
+                ],
+                myCollection = new ymaps.GeoObjectCollection({}, {
+                    draggable: false,
+                    iconLayout: 'default#image',
+                    iconImageHref: './img/content/map-marker.svg',
+                    iconImageSize: [46, 57],
+                    iconImageOffset: [-26, -52]
+                });
+
+            for (var i = 0; i < coords.length; i++) {
+                myCollection.add(new ymaps.Placemark(coords[i]));
+            }
+
+            myMap.geoObjects.add(myCollection);
+
+            myMap.behaviors.disable('scrollZoom');
+        }
+
+        ymaps.ready(init);
