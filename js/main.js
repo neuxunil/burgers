@@ -163,14 +163,8 @@
 
     // Модальное окно - отзывы
 $(function() {
-    $("[data-popup]").fancybox({
-        transitionEffect : "slide",
-        transitionDuration : 1500,
-});
-    $('.full-review__close').on('click touchstart', e => {
-        e.preventDefault()
-    $.fancybox.close();
-})
+    $("[data-fancybox]").fancybox({
+    });
 })
 
     // One page scroll
@@ -313,9 +307,8 @@ $(function() {
         ymaps.ready(init);
 
 
-
 // Форма заказа
-$('.order__form-button').on('click touchstart', function(e) {
+$('[submit]').on('click touchstart', function(e) {
     e.preventDefault();
 
     var form = $(e.target),

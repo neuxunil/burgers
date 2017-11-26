@@ -9,6 +9,10 @@
   .section__title {
     margin-bottom: rem(80px);
   }
+
+  @include phones {
+    margin-bottom: rem(40px);
+  }
 }
 
 .best__icon-pic {

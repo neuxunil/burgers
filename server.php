@@ -6,7 +6,7 @@
 	$street = $_POST['street'];
 
 	$house = $_POST['house'];
-	$corpus = $_POST['corpus'];
+	$corpus = $_POST['part'];
 	$flat = $_POST['flat'];
 	$floor = $_POST['floor'];
 
