@@ -311,3 +311,20 @@ $(function() {
         }
 
         ymaps.ready(init);
+
+
+
+// Форма заказа
+$('.order__form-button').on('click touchstart', function(e) {
+    e.preventDefault();
+
+    var form = $(e.target),
+        url = form.attr('action'),
+        data = form.serialize();
+
+    var request = $.ajax({
+        type: 'POST',
+        url: url,
+        data: data
+    });
+});

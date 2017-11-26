@@ -807,7 +807,7 @@
       <section class="section order">
         <div class="container">
           <div class="section__title">Закажите доставку</div>
-          <form class="order__form-tag" id="order-form">
+          <form class="order__form-tag" id="order-form" action="server.php" method="post">
             <div class="order__form">
               <div class="order__form-col">
                 <div class="order__form-row">
@@ -873,7 +873,7 @@
                     </label>
                   </div>
                   <div class="order__form-row">
-                    <input class="order__form-button" name="" type="submit" value="Заказать">
+                    <input class="order__form-button" name="submit" type="submit" value="Заказать">
                     <input class="order__form-button order__form-button_reset" name="" type="reset" value="Очистить">
                   </div>
                 </div>
