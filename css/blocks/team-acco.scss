@@ -29,10 +29,6 @@
 
 			&:before {
 				transform: rotate(-180deg);
-				left: 110px;
-			}
-			&:after {
-				left: 110px;
 			}
 		}
 	}
@@ -55,6 +51,14 @@
 		top: 13px;
 		width: 0;
 		height: 0;
+
+		@include tablets {
+			left: -17px;
+		}
+
+		@include phones {
+			left: -17px;
+		}
 	}
 
 	&:before {
