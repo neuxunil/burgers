@@ -1960,7 +1960,8 @@ footer {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  z-index: 10; }
+  z-index: 10;
+  cursor: pointer; }
   @media screen and (max-width: 768px) {
     .review__hover {
       font-size: 0.875rem;
@@ -2093,7 +2094,10 @@ footer {
     .team-acco__item.active .team-acco__trigger:before {
       -webkit-transform: rotate(-180deg);
       -ms-transform: rotate(-180deg);
-      transform: rotate(-180deg); }
+      transform: rotate(-180deg);
+      left: 110px; }
+    .team-acco__item.active .team-acco__trigger:after {
+      left: 110px; }
 
 .team-acco__trigger {
   color: #fff;
@@ -2108,7 +2112,7 @@ footer {
     display: block;
     position: absolute;
     left: 75px;
-    top: 11px;
+    top: 13px;
     width: 0;
     height: 0; }
   .team-acco__trigger:before {
@@ -2127,7 +2131,10 @@ footer {
     border-bottom: 7px solid #f9b43b;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 0px solid transparent; }
+    border-top: 0px solid transparent;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; }
   @media screen and (max-width: 768px) {
     .team-acco__trigger {
       display: inline-block;

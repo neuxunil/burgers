@@ -1,3 +1,5 @@
+"use strict";
+
     // гамбургер меню
     var menuVisible = $('.hamburger-menu-link'),
         menuClose = $('.hamburger-menu__close'),
@@ -160,15 +162,16 @@
     });
 
     // Модальное окно - отзывы
-    $(function() {
-        $(".review__view").fancybox({
-          transitionDuration : 500,
-    });
-        $('.full-review__close').on('click', e => {
-            e.preventDefault()
-        $.fancybox.close();
-    })
-    })
+$(function() {
+    $("[data-popup]").fancybox({
+        transitionEffect : "slide",
+        transitionDuration : 1500,
+});
+    $('.full-review__close').on('click touchstart', e => {
+        e.preventDefault()
+    $.fancybox.close();
+})
+})
 
     // One page scroll
     const display = $('.maincontent');
@@ -281,7 +284,7 @@
             myMap = new ymaps.Map("map", {
                 center: [59.93916998692174, 30.309015096732622],
                 zoom: 11,
-                controls: [],
+                controls: ['zoomControl', 'fullscreenControl'],
             });
 
             var coords = [
