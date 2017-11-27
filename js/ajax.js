@@ -31,7 +31,6 @@ var ajaxForm = function (form) {
         data: data,
         dataType: 'JSON'
     });
-
 }
 
 $('#order-form').on('submit', submitForm);

@@ -813,35 +813,35 @@
                 <div class="order__form-row">
                   <label class="order__form-block">
                     <div class="order__form-label">Имя</div>
-                    <input class="order__form-input" name="name" type="text" placeholder="">
+                    <input class="order__form-input" name="name" type="text" placeholder="" required>
                   </label>
                   <label class="order__form-block">
                     <div class="order__form-label">Телефон</div>
-                    <input class="order__form-input phone-mask" name="phone" type="text" placeholder="">
+                    <input class="order__form-input phone-mask" name="phone" type="tel" placeholder="" required>
                   </label>
                 </div>
                 <div class="order__form-row">
                   <label class="order__form-block">
                     <div class="order__form-label">Улица</div>
-                    <input class="order__form-input" name="street" type="text" placeholder="">
+                    <input class="order__form-input" name="street" type="text" placeholder="" required>
                   </label>
                 </div>
                 <div class="order__form-row">
                   <label class="order__form-block">
                     <div class="order__form-label">Дом</div>
-                    <input class="order__form-input" name="house" type="text" placeholder="">
+                    <input class="order__form-input" name="house" type="number" placeholder="" required>
                   </label>
                   <label class="order__form-block">
                     <div class="order__form-label">Корпус</div>
-                    <input class="order__form-input" name="part" type="text" placeholder="">
+                    <input class="order__form-input" name="part" type="number" placeholder="" required>
                   </label>
                   <label class="order__form-block">
                     <div class="order__form-label">Квартира</div>
-                    <input class="order__form-input" name="flat" type="text" placeholder="">
+                    <input class="order__form-input" name="flat" type="number" placeholder="" required>
                   </label>
                   <label class="order__form-block">
                     <div class="order__form-label">Этаж</div>
-                    <input class="order__form-input" name="floor" type="text" placeholder="">
+                    <input class="order__form-input" name="floor" type="number" placeholder="" required>
                   </label>
                 </div>
               </div>
@@ -849,7 +849,7 @@
                 <div class="order__form-row">
                   <label class="order__form-block">
                     <div class="order__form-label">Комментарий</div>
-                    <textarea class="order__form-input order__form-input_textarea" name="comment"></textarea>
+                    <textarea class="order__form-input order__form-input_textarea" name="comment" maxlength="200" required></textarea>
                   </label>
                 </div>
                 <div class="order__form-buttons">

@@ -1,17 +1,12 @@
 <?php 
-	
 	$name = $_POST['name'];
 	$phone = $_POST['phone'];
-
 	$street = $_POST['street'];
-
 	$house = $_POST['house'];
 	$corpus = $_POST['part'];
 	$flat = $_POST['flat'];
 	$floor = $_POST['floor'];
-
 	$comment = $_POST['comment'];
-
 	$pay = $_POST['pay'];
 	$disturb = $_POST['dont-disturb'];
 	$disturb = isset($disturb) ? 'НЕТ' : 'ДА';
@@ -45,9 +40,14 @@
 
 	$mail = mail('neuxunil@yandex.ru', 'Заказ с сайта', $mail_message, $headers);
 
-	if ($mail) {
-		echo 'Сообщение отправлено';
-	}else{
-		echo 'Произошла ошибка';
-	}
+    $data = [];
+
+if ($mail) {
+    $data['status'] = "OK";
+    $data['mes'] = "Письмо успешно отправлено";
+}else {
+    $data['status'] = "NO";
+    $data['mes'] = "На сервере произошла ошибка";
+}
+    echo json_encode($data);
 ?>
